@@ -89,6 +89,7 @@
     align-items: flex-start;
     justify-content: space-between;
     align-self: stretch;
+    cursor: pointer;
 }
 
 .field_input {
@@ -142,6 +143,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    cursor: pointer;
 }
 
 .form_signup_option {
@@ -176,6 +178,7 @@
     border-radius: 40px;
     background-color: #ffffff;
     border: 1px solid #111111;
+    cursor: pointer;
 }
 
 .signup_option_text {
