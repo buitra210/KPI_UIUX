@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=chrome">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Sign Up</title>
+</head>
+<body>
+<div class="container">
+    <div class="form_container">
+        <div class="form_title">
+            <h1 class="title_container">Đăng ký</h1>
+            <p class="subtitle_container">
+                Đã có tài khoản? <a href="#" class="subtitle_signin">Đăng nhâp</a>
+            </p>
+        </div>
+        <div class="form_body">
+            <div class="form_field">
+                <label for="fullname">
+                    <span class="field_label">
+                        Tên đầy đủ
+                    </span>
+                </label>
+                <input id="fullname" type="text" class="field_input" size="100%" placeholder="Điền tên của bạn">
+            </div>
+            <div class="form_field">
+                <label for="email">
+                    <span class="field_label">
+                        Email
+                    </span>
+                </label>
+                <input id="email" type="text" class="field_input" size="80px" placeholder="Điền email của bạn">
+            </div>
+            <div class="form_field">
+                <p class="field_label password_label">
+                    <label for="password">
+                        Mật khẩu
+                    </label>
+                    <span>
+                        <i class="fa-solid fa-eye-slash"></i> Ẩn
+                    </span>
+                </p>
+                <input id="password" type="text" class="field_input" size="80px" placeholder="Điền mật khẩu của bạn">
+                <p class="password_requirement">
+                    Mật khẩu cần có ít nhất 8 kí tự bao gồm chữ cái, chữ số và kí tự đặc biệt.
+                </p>
+            </div>
+            <div class="signup_field">
+                <div class="term_and_service">
+                    <div>
+                        Tôi đồng ý với <span class="underline">Điều khoản sử dụng</span> và <span class="underline">Chính sách bảo mật</span>.
+                    </div>
+                    <button class="btn_signup">
+                        Đăng ký
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="form_signup_option">
+            <p class="text_signup_option">
+                Hoặc Đăng nhập với
+            </p>
+            <div class="signup_option_container">
+                <a href="#" class="no_decoration">
+                    <div class="btn_signup_option signup_option_text" style="display: flex; justify-content: space-around">
+                        <i class="fa-brands fa-facebook fa-sm" style="color: #0C82EE;"></i> Facebook
+                    </div>
+                </a>
+                <a href="#" class="no_decoration">
+                    <div class="btn_signup_option signup_option_text" style="display: flex; justify-content: space-evenly">
+                        <span style="margin-top: -8px">
+                            <img src="./assets/icons/google.png" alt="" style="margin-top: 8px;">
+                        </span> Google
+                    </div>
+                </a>
+                <a href="#" class="no_decoration">
+                    <div class="btn_signup_option signup_option_text" style="display: flex; justify-content: space-evenly">
+                        <i class="fa-brands fa-apple fa-sm"></i> Apple
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
