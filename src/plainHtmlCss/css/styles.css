@@ -87,7 +87,7 @@
     display: flex;
     padding-right: 9px;
     align-items: flex-start;
-    gap: 596px;
+    justify-content: space-between;
     align-self: stretch;
 }
 
