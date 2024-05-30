@@ -14,10 +14,10 @@
         <div class="form_title">
             <h1 class="title_container">Đăng nhập</h1>
             <p class="subtitle_container">
-                Chưa có tài khoản? <a href="#" class="subtitle_signin">Đăng ký</a>
+                Chưa có tài khoản? <a href="./signUp.html" class="subtitle_signin">Đăng ký</a>
             </p>
         </div>
-        <div class="form_body">
+        <form class="form_body" action="./signUp.html">
             <div class="form_field">
                 <label for="email">
                     <span class="field_label">
@@ -32,13 +32,14 @@
                         Mật khẩu
                     </label>
                     <span>
-                        <i class="fa-solid fa-eye-slash"></i> Ẩn
+                        <i class="fa-solid fa-eye-slash"></i><i class="fa-solid fa-eye" style="display: none;"></i> Ẩn
                     </span>
                 </p>
-                <input id="password" type="text" class="field_input" size="80px" placeholder="Điền mật khẩu của bạn">
-                <div class="password_lowbar" style="width: 100%">
+                <input id="password" type="password" class="field_input" size="80px"
+                       placeholder="Điền mật khẩu của bạn">
+                <div class="password_lowbar" style="width: 100%; margin-top: 8px">
                     <div style="float: right">
-                        <a href="#" style="color: #000;">Quên mật khẩu?</a>
+                        <a href="./forgot_password.html" style="color: #000;">Quên mật khẩu?</a>
                     </div>
                     <div>
                         <input type="checkbox" id="remember_me" name="remember_me" value="remember_me">
@@ -48,31 +49,34 @@
             </div>
             <div class="signup_field">
                 <div class="term_and_service">
-                    <button class="btn_signup">
+                    <button class="btn_signup" type="submit">
                         Đăng nhập
                     </button>
                 </div>
             </div>
-        </div>
+        </form>
         <div class="form_signup_option">
             <p class="text_signup_option">
                 Hoặc Đăng nhập với
             </p>
             <div class="signup_option_container">
                 <a href="#" class="no_decoration">
-                    <div class="btn_signup_option signup_option_text" style="display: flex; justify-content: space-around">
+                    <div class="btn_signup_option signup_option_text"
+                         style="display: flex; justify-content: space-around">
                         <i class="fa-brands fa-facebook fa-sm" style="color: #0C82EE;"></i> Facebook
                     </div>
                 </a>
                 <a href="#" class="no_decoration">
-                    <div class="btn_signup_option signup_option_text" style="display: flex; justify-content: space-evenly">
+                    <div class="btn_signup_option signup_option_text"
+                         style="display: flex; justify-content: space-evenly">
                         <span style="margin-top: -8px">
                             <img src="./assets/icons/google.png" alt="" style="margin-top: 8px;">
                         </span> Google
                     </div>
                 </a>
                 <a href="#" class="no_decoration">
-                    <div class="btn_signup_option signup_option_text" style="display: flex; justify-content: space-evenly">
+                    <div class="btn_signup_option signup_option_text"
+                         style="display: flex; justify-content: space-evenly">
                         <i class="fa-brands fa-apple fa-sm"></i> Apple
                     </div>
                 </a>
@@ -80,5 +84,22 @@
         </div>
     </div>
 </div>
+<script>
+	const eyeSlash = document.querySelector('.fa-eye-slash');
+	const eye = document.querySelector('.fa-eye');
+	const passwordField = document.querySelector('#password');
+
+	eyeSlash.onclick = function () {
+		eyeSlash.style.display = 'none';
+		eye.style.display = 'inline';
+		passwordField.type = 'text';
+	};
+
+	eye.onclick = function () {
+		eye.style.display = 'none';
+		eyeSlash.style.display = 'inline';
+		passwordField.type = 'password';
+	};
+</script>
 </body>
 </html>

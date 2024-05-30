@@ -103,6 +103,8 @@
     border-radius: 32px;
     margin-top: 11px;
     margin-bottom: 11px;
+
+    cursor: pointer;
 }
 
 .real_body_or_signup {
