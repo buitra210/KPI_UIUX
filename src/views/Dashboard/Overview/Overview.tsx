@@ -1,83 +1,50 @@
-import { Box, Button, Typography } from "@mui/material";
-import BoxCustom from "src/components/BoxCustom/BoxCustom";
-import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
-import HubIcon from "@mui/icons-material/Hub";
-import Hub from "@mui/icons-material/Hub";
-import ButtonCustom from "src/components/ButtonCustom/ButtonCustom";
+import { Box, Typography } from "@mui/material";
+import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
+import FilterListIcon from "@mui/icons-material/FilterList";
+import FirstHi from "./components/FirstHi/FirstHi";
 
 export default function Overview() {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "space-between",
-        flexWrap: "wrap",
-        my: "27px",
-      }}
-    >
-      <BoxCustom sx={{ width: "27%", backgroundColor: "#a5beb9" }}>
-        <Box sx={{ display: "flex", my: 1, alignItems: "center" }}>
-          <HubIcon sx={{ mr: 2, color: "#448779" }} />
-          <Typography
-            sx={{ fontSize: "25px", fontWeight: 550, color: "white" }}
-          >
-            Connect Your Data
-          </Typography>
+    <Box>
+      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: 1,
+            mt: 1,
+            mb: 1,
+            ml: 2,
+            cursor: "pointer",
+            padding: "8px",
+            borderRadius: "12px",
+            color: "#b5b8b8",
+            fontSize: "15px",
+          }}
+        >
+          <DashboardOutlinedIcon sx={{ size: "12px" }} />
+          <Typography sx={{ fontSize: "12px" }}>Dashboard/Overview</Typography>
         </Box>
         <Box
           sx={{
             display: "flex",
-            justifyContent: "space-between",
-            mt: 2,
+            alignItems: "center",
+            gap: 1,
+            mt: 1,
             mb: 1,
+            ml: 2,
+            cursor: "pointer",
+            padding: "8px",
+            borderRadius: "12px",
+            color: "#b5b8b8",
+            fontSize: "15px",
           }}
         >
-          <ButtonCustom sx={{ color: "white" }}>Search Connectors</ButtonCustom>
-          <ButtonCustom sx={{ color: "white" }}>Upload data</ButtonCustom>
+          <Typography sx={{ fontSize: "12px" }}>Daily</Typography>
+          <FilterListIcon sx={{ size: "12px" }} />
         </Box>
-      </BoxCustom>
-      <BoxCustom sx={{ width: "27%", backgroundColor: "#a5beb9" }}>
-        <Box sx={{ display: "flex", my: 1, alignItems: "center" }}>
-          <HubIcon sx={{ mr: 2, color: "#448779" }} />
-          <Typography
-            sx={{ fontSize: "25px", fontWeight: 550, color: "white" }}
-          >
-            Connect Your Data
-          </Typography>
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            mt: 2,
-            mb: 1,
-          }}
-        >
-          <ButtonCustom sx={{ color: "white" }}>Search Connectors</ButtonCustom>
-          <ButtonCustom sx={{ color: "white" }}>Upload data</ButtonCustom>
-        </Box>
-      </BoxCustom>
-      <BoxCustom sx={{ width: "27%", backgroundColor: "#a5beb9" }}>
-        <Box sx={{ display: "flex", my: 1, alignItems: "center" }}>
-          <HubIcon sx={{ mr: 2, color: "#448779" }} />
-          <Typography
-            sx={{ fontSize: "25px", fontWeight: 550, color: "white" }}
-          >
-            Connect Your Data
-          </Typography>
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            mt: 2,
-            mb: 1,
-          }}
-        >
-          <ButtonCustom sx={{ color: "white" }}>Search Connectors</ButtonCustom>
-          <ButtonCustom sx={{ color: "white" }}>Upload data</ButtonCustom>
-        </Box>
-      </BoxCustom>
+      </Box>
+      <FirstHi />
     </Box>
   );
 }

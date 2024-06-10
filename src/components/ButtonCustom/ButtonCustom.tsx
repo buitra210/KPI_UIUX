@@ -1,4 +1,5 @@
 import { Box, SxProps } from "@mui/material";
+import { homedir } from "os";
 import React from "react";
 
 type BoxCustomProps = {
@@ -9,17 +10,20 @@ export default function ButtonCustom({ children, sx }: BoxCustomProps) {
   return (
     <Box
       sx={{
-        // color: "red",
-        backgroundColor: "#7ca792",
+        color: "white",
+        backgroundColor: "#c60413",
         cursor: "pointer",
-        fontWeight: 600,
         py: 1,
         px: 1,
-        borderRadius: "15px",
+        borderRadius: "10px",
         display: "flex",
         alignItems: "center",
-        border: "2px solid #3f6c62",
+        justifyContent: "center",
+        border: "1px solid #520208",
         boxShadow: "0px 1px 5px 0px #00000021",
+        ":hover": {
+          backgroundColor: "#f20418",
+        },
 
         ...sx,
       }}

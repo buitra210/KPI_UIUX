@@ -1,253 +1,291 @@
-import {
-  AppBar,
-  Avatar,
-  Box,
-  Button,
-  Container,
-  Divider,
-  IconButton,
-  InputBase,
-  Menu,
-  MenuItem,
-  Paper,
-  Toolbar,
-  Tooltip,
-  Typography,
-  radioClasses,
-} from "@mui/material";
-import HomeIcon from "@mui/icons-material/Home";
+import * as React from "react";
+import { styled, alpha } from "@mui/material/styles";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import InputBase from "@mui/material/InputBase";
+import Badge from "@mui/material/Badge";
+import MenuItem from "@mui/material/MenuItem";
+import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import React from "react";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import MessageIcon from "@mui/icons-material/Message";
-import DatasetIcon from "@mui/icons-material/Dataset";
-import FlagIcon from "@mui/icons-material/Flag";
 import SearchIcon from "@mui/icons-material/Search";
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import MoreIcon from "@mui/icons-material/MoreVert";
+import StarIcon from "@mui/icons-material/Star";
+import { Drawer } from "@mui/material";
+import Sidebar from "../sidebar/Sidebar";
+import SidebarMobile from "../sidebar/SidebarMobile";
+import ImportantMobile from "../important/ImportantMobile";
 
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+type Anchor = "left" | "right";
+const Search = styled("div")(({ theme }) => ({
+  position: "relative",
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  "&:hover": {
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
+  },
+  marginRight: theme.spacing(2),
+  marginLeft: 0,
+  width: "100%",
+  [theme.breakpoints.up("sm")]: {
+    marginLeft: theme.spacing(3),
+    width: "auto",
+  },
+}));
 
-const pagesWithIcons = [
-  { page: "Home", icon: <HomeIcon /> },
-  { page: "Dashboard", icon: <DashboardIcon /> },
-  { page: "Message", icon: <MessageIcon /> },
-  { page: "Data", icon: <DatasetIcon /> },
-  { page: "Goals", icon: <FlagIcon /> },
-];
+const SearchIconWrapper = styled("div")(({ theme }) => ({
+  padding: theme.spacing(0, 2),
+  height: "100%",
+  position: "absolute",
+  pointerEvents: "none",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+}));
 
-export default function Header() {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null
-  );
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: "inherit",
+  "& .MuiInputBase-input": {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    transition: theme.transitions.create("width"),
+    width: "100%",
+    [theme.breakpoints.up("md")]: {
+      width: "30ch", // Increased width
+    },
+  },
+}));
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
+export default function PrimarySearchAppBar() {
+  const [open, setOpen] = React.useState(false);
+  const [open1, setOpen1] = React.useState(false);
+  const toggleDrawer = (newOpen: boolean) => () => {
+    setOpen(newOpen);
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
+
+  const toggleDrawer1 = (newOpen1: boolean) => () => {
+    setOpen1(newOpen1);
   };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
+    React.useState<null | HTMLElement>(null);
+
+  const isMenuOpen = Boolean(anchorEl);
+  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+  const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+  const handleMobileMenuClose = () => {
+    setMobileMoreAnchorEl(null);
   };
-  return (
-    <Box
-      sx={{
-        display: "flex",
-        position: "sticky",
-        alignItems: "center",
-        background: "#555555",
-        pt: 0,
-        px: 2,
-        top: 0,
-        left: 0,
-        zIndex: 2,
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+    handleMobileMenuClose();
+  };
+
+  const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setMobileMoreAnchorEl(event.currentTarget);
+  };
+
+  const menuId = "primary-search-account-menu";
+  const renderMenu = (
+    <Menu
+      anchorEl={anchorEl}
+      anchorOrigin={{
+        vertical: "top",
+        horizontal: "right",
       }}
+      id={menuId}
+      keepMounted
+      transformOrigin={{
+        vertical: "top",
+        horizontal: "right",
+      }}
+      open={isMenuOpen}
+      onClose={handleMenuClose}
     >
-      <Toolbar disableGutters>
-        <Box sx={{ display: "flex", mr: "150px" }}>
-          <Typography
-            variant="h6"
-            noWrap
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontWeight: 700,
-              letterSpacing: ".2rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            LOGO
-          </Typography>
-        </Box>
-        <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+    </Menu>
+  );
+
+  const mobileMenuId = "primary-search-account-menu-mobile";
+  const renderMobileMenu = (
+    <Menu
+      anchorEl={mobileMoreAnchorEl}
+      anchorOrigin={{
+        vertical: "top",
+        horizontal: "right",
+      }}
+      id={mobileMenuId}
+      keepMounted
+      transformOrigin={{
+        vertical: "top",
+        horizontal: "right",
+      }}
+      open={isMobileMenuOpen}
+      onClose={handleMobileMenuClose}
+    >
+      <MenuItem>
+        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+          <Badge badgeContent={4} color="error">
+            <MailIcon />
+          </Badge>
+        </IconButton>
+        <p>Messages</p>
+      </MenuItem>
+      <MenuItem>
+        <IconButton
+          size="large"
+          aria-label="show 17 new notifications"
+          color="inherit"
+        >
+          <Badge badgeContent={17} color="error">
+            <NotificationsIcon />
+          </Badge>
+        </IconButton>
+        <p>Notifications</p>
+      </MenuItem>
+      <MenuItem onClick={handleProfileMenuOpen}>
+        <IconButton
+          size="large"
+          aria-label="account of current user"
+          aria-controls="primary-search-account-menu"
+          aria-haspopup="true"
+          color="inherit"
+        >
+          <AccountCircle />
+        </IconButton>
+        <p>Profile</p>
+      </MenuItem>
+    </Menu>
+  );
+
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar
+        position="sticky"
+        sx={{
+          backgroundColor: "inherit",
+          color: "#2A2222",
+          boxShadow: "none",
+          width: { xs: "100%", sm: "70%", md: "70%" },
+          left: "15%",
+
+          // border: "1px solid #2A2222",
+        }}
+      >
+        <Toolbar>
           <IconButton
             size="large"
-            aria-label="account of current user"
-            aria-controls="menu-appbar"
-            aria-haspopup="true"
-            onClick={handleOpenNavMenu}
+            edge="start"
             color="inherit"
+            aria-label="open drawer"
+            sx={{ mr: { md: 2, xs: "2px" } }}
+            onClick={toggleDrawer(true)}
           >
             <MenuIcon />
           </IconButton>
-          <Menu
-            id="menu-appbar"
-            anchorEl={anchorElNav}
-            anchorOrigin={{
-              vertical: "bottom",
-              horizontal: "left",
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: "top",
-              horizontal: "left",
-            }}
-            open={Boolean(anchorElNav)}
-            onClose={handleCloseNavMenu}
+          <Drawer open={open} onClose={toggleDrawer(false)}>
+            <SidebarMobile />
+          </Drawer>
+          <IconButton
+            sx={{ display: { sx: "block", md: "none" } }}
+            size="large"
+            color="inherit"
+            aria-label="open drawer"
+            onClick={toggleDrawer1(true)}
+          >
+            <Badge color="error">
+              <StarIcon />
+            </Badge>
+          </IconButton>
+          <Drawer open={open1} onClose={toggleDrawer1(false)}>
+            <ImportantMobile />
+          </Drawer>
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ display: { xs: "none", sm: "block" } }}
+          >
+            KEIKAKU
+          </Typography>
+
+          <Box sx={{ flexGrow: 1 }} />
+          <Search
             sx={{
-              display: { xs: "block", md: "none" },
+              border: "1px solid #2A2222",
+              backgroundColor: "white",
+              display: "flex",
+              justifyContent: "flex-end",
+              mx: "auto",
+              width: { xs: "70%", sm: "30%" }, // Adjust the width as needed
             }}
           >
-            {pagesWithIcons.map((page, index) => (
-              <MenuItem key={index} onClick={handleCloseNavMenu}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
-                  {page.icon}
-                  <Typography textAlign="center">{page.page}</Typography>
-                </Box>
-              </MenuItem>
-            ))}
-          </Menu>
-        </Box>
-
-        <HomeIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-
-        <Typography
-          variant="h5"
-          noWrap
-          component="a"
-          href="#app-bar-with-responsive-menu"
-          sx={{
-            mr: 2,
-            display: { xs: "flex", md: "none" },
-            flexGrow: 1,
-            fontFamily: "monospace",
-            fontWeight: 700,
-            letterSpacing: ".3rem",
-            color: "inherit",
-            textDecoration: "none",
-          }}
-        >
-          LOGO
-        </Typography>
-
-        <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-          {pagesWithIcons.map((page, index) => (
-            <MenuItem key={index} onClick={handleCloseNavMenu}>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  flexDirection: "column",
-                  color: "white",
-                  opacity: 0.7,
-                  "&:hover": { opacity: 1 },
-                }}
-              >
-                {" "}
-                <Box sx={{ width: "16px", height: "16px", mb: "10px" }}>
-                  {page.icon}
-                </Box>
-                <Typography textAlign="center" sx={{ fontSize: "15px" }}>
-                  {page.page}
-                </Typography>
-              </Box>
-            </MenuItem>
-          ))}
-        </Box>
-
-        <Box
-          sx={{
-            flexGrow: 0,
-            display: "flex",
-            alignContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Paper
-            component="form"
-            sx={{
-              p: "2px 4px",
-              display: { xs: "none", md: "flex" },
-              alignItems: "center",
-              width: 400,
-              height: "35px",
-              borderRadius: "20px",
-              marginRight: "60px",
-              marginLeft: "150px",
-            }}
-          >
-            <IconButton sx={{ p: "10px" }} aria-label="menu"></IconButton>
-            <InputBase
-              sx={{ ml: 1, flex: 1 }}
-              placeholder="Search"
-              inputProps={{ "aria-label": "search google maps" }}
-            />
-            <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
-              <SearchIcon />
-            </IconButton>
-            <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+            <StyledInputBase inputProps={{ "aria-label": "search" }} />
+            <SearchIconWrapper sx={{ backgroundColor: "#E93C3C" }}>
+              <SearchIcon sx={{ color: "white" }} />
+            </SearchIconWrapper>
+          </Search>
+          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
-              color="primary"
-              sx={{ p: "10px" }}
-              aria-label="directions"
-            ></IconButton>
-          </Paper>
-          <NotificationsIcon
-            sx={{ marginRight: "50px", color: "white", cursor: "pointer" }}
-          />
-          <Tooltip title="Open settings">
-            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              size="large"
+              aria-label="show 4 new mails"
+              color="inherit"
+            >
+              <Badge badgeContent={4} color="error">
+                <MailIcon />
+              </Badge>
             </IconButton>
-          </Tooltip>
-          <Menu
-            sx={{ mt: "45px" }}
-            id="menu-appbar"
-            anchorEl={anchorElUser}
-            anchorOrigin={{
-              vertical: "top",
-              horizontal: "right",
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: "top",
-              horizontal: "right",
-            }}
-            open={Boolean(anchorElUser)}
-            onClose={handleCloseUserMenu}
-          >
-            {settings.map((setting) => (
-              <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                <Typography textAlign="center">{setting}</Typography>
-              </MenuItem>
-            ))}
-          </Menu>
-        </Box>
-      </Toolbar>
+            <IconButton
+              size="large"
+              aria-label="show 17 new notifications"
+              color="inherit"
+            >
+              <Badge badgeContent={17} color="error">
+                <NotificationsIcon />
+              </Badge>
+            </IconButton>
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+              color="inherit"
+            >
+              <AccountCircle />
+            </IconButton>
+          </Box>
+          <Box sx={{ display: { xs: "flex", md: "none" } }}>
+            <IconButton
+              size="large"
+              aria-label="show more"
+              aria-controls={mobileMenuId}
+              aria-haspopup="true"
+              onClick={handleMobileMenuOpen}
+              color="inherit"
+            >
+              <MoreIcon />
+            </IconButton>
+          </Box>
+        </Toolbar>
+      </AppBar>
+      {renderMobileMenu}
+      {renderMenu}
     </Box>
   );
 }
