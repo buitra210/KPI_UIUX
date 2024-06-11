@@ -6,9 +6,9 @@ export default function Content({ headerHeight }: { headerHeight: string }) {
     <Container
       sx={{
         minHeight: `calc(100svh - ${headerHeight})`,
-        left: { sm: "15%" },
-        right: { sm: "15%" },
-        width: { sm: "70%" },
+        left: { sm: "15%", xs: "0" },
+        right: { sm: "15%", xs: "0" },
+        width: { sm: "70%", xs: "100%" },
       }}
     >
       <Outlet />

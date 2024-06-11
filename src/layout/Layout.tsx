@@ -6,7 +6,7 @@ import Important from "./important/Important";
 
 export default function Layout() {
   return (
-    <Box>
+    <Box sx={{ overflow: "hidden" }}>
       <Sidebar />
       <Header />
       <Important />

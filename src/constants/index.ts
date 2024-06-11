@@ -1,5 +1,9 @@
 export const CHART_COLOR_RANGE = [
   // "#002831",
+  "#9b030f",
+  "#fc5260",
+  "#fed4d7",
+  "#15bd97",
   "#0A3C58",
   "#025188",
   "#0973AF",

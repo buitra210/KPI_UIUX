@@ -2,6 +2,10 @@ import { Box, Typography } from "@mui/material";
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import FirstHi from "./components/FirstHi/FirstHi";
+import ActionGeneral from "./components/ActionGeneral/ActionGeneral";
+import LineChartKPI from "../LineChartKPI/LineChartKPI";
+import BarChartBest from "../BarChartBest/BarChartBest";
+import GaugeChart from "../GaugeChart/GaugeChart";
 
 export default function Overview() {
   return (
@@ -45,6 +49,20 @@ export default function Overview() {
         </Box>
       </Box>
       <FirstHi />
+      <ActionGeneral />
+      <LineChartKPI />
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          gap: "20px",
+          mt: "40px",
+          flexWrap: "wrap",
+        }}
+      >
+        <GaugeChart />
+        <BarChartBest />
+      </Box>
     </Box>
   );
 }
