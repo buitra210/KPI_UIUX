@@ -4,6 +4,7 @@ import Layout from "./layout/Layout";
 import Dashboard from "./views/Dashboard/Dashboard";
 import DetailKPI from "./views/DetailKPI/DetailKPI";
 import TaskOverview from "./views/TaskOverview/TaskOverview";
+import KPIManage from "./views/KPIManage/KPIManage";
 
 export default function RouterUrl() {
   return useRoutes([
@@ -12,7 +13,7 @@ export default function RouterUrl() {
       element: <Layout />,
       children: [
         { path: "dashboard", element: <Dashboard /> },
-        { path: "detailKPI", element: <DetailKPI /> },
+        { path: "KPIManage", element: <KPIManage /> },
         { path: "taskoverview", element: <TaskOverview /> },
       ],
     },
