@@ -36,16 +36,20 @@ export default function FirstHi() {
             pr: { xs: 0, sm: 0 }, // This line is causing the error
           }}
         >
-          <Box>
+          <Box sx={{ px: { md: 4, xs: 0 } }}>
             <Typography sx={{ fontSize: "30px", fontWeight: 530 }}>
               Allmost all
             </Typography>
-            <Typography sx={{ fontSize: "30px", fontWeight: 530 }}>
+            <Typography sx={{ fontSize: "40px", fontWeight: 600 }}>
               KPIs fullfilled
             </Typography>
           </Box>
           <Box>
-            <PieChart
+            <img
+              src="public/img/todolist.png"
+              style={{ width: "200px", height: "auto" }}
+            ></img>
+            {/* <PieChart
               series={[
                 {
                   data: [
@@ -66,7 +70,7 @@ export default function FirstHi() {
               ]}
               width={400}
               height={200}
-            />
+            /> */}
           </Box>
         </Box>
       </Box>
