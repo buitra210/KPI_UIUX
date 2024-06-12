@@ -4,7 +4,7 @@ import BoxCustom from "src/components/BoxCustom/BoxCustom";
 import { CHART_COLOR_RANGE } from "src/constants";
 
 export default function GaugeValueRangeNoSnap() {
-  const value = 50;
+  const value = 49;
   const fillColor = value < 50 ? CHART_COLOR_RANGE[0] : CHART_COLOR_RANGE[3];
   return (
     <Gauge

@@ -1,18 +1,8 @@
-import {
-  Box,
-  Divider,
-  List,
-  ListItem,
-  ListItemText,
-  Typography,
-} from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import FaceSharpIcon from "@mui/icons-material/FaceSharp";
 import AutoAwesomeMosaicIcon from "@mui/icons-material/AutoAwesomeMosaic";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import BookmarkAddedSharpIcon from "@mui/icons-material/BookmarkAddedSharp";
-import GroupsSharpIcon from "@mui/icons-material/GroupsSharp";
-import AccountBoxRoundedIcon from "@mui/icons-material/AccountBoxRounded";
-import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
 
 export default function Sidebar() {
   return (

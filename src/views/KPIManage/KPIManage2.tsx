@@ -1,11 +1,20 @@
 import { Box, Typography } from "@mui/material";
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import FilterListIcon from "@mui/icons-material/FilterList";
+import SubBar from "./components/SubBar/SubBar";
+import NoKPI from "./components/NoKPI/NoKPI";
+import Action from "./components/NoKPI/Action/Action";
+import HaveKPI from "./components/HaveKPI/HaveKPI";
 
-export default function KPIManage() {
+export default function KPIManage2() {
   return (
     <Box>
-      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
         <Box
           sx={{
             display: "flex",
@@ -13,9 +22,9 @@ export default function KPIManage() {
             gap: 1,
             mt: 1,
             mb: 1,
-            ml: 2,
+            // ml: 2,
             cursor: "pointer",
-            padding: "8px",
+            // padding: "8px",
             borderRadius: "12px",
             color: "#b5b8b8",
             fontSize: "15px",
@@ -43,6 +52,9 @@ export default function KPIManage() {
           <FilterListIcon sx={{ size: "12px" }} />
         </Box>
       </Box>
+      <SubBar />
+
+      <HaveKPI />
     </Box>
   );
 }

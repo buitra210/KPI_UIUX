@@ -3,8 +3,22 @@ import FaceSharpIcon from "@mui/icons-material/FaceSharp";
 import AutoAwesomeMosaicIcon from "@mui/icons-material/AutoAwesomeMosaic";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import BookmarkAddedSharpIcon from "@mui/icons-material/BookmarkAddedSharp";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function SidebarMobile() {
+  const [activeItem, setActiveItem] = useState("Overview");
+  const navigate = useNavigate();
+
+  const handleItemClick = (item: any) => {
+    setActiveItem(item);
+    if (item == "KPIs") {
+      navigate("/KPIManage");
+    }
+    if (item == "overview") {
+      navigate("/overview");
+    }
+  };
   return (
     <Box
       sx={{
@@ -40,7 +54,7 @@ export default function SidebarMobile() {
         <Box
           sx={{
             borderRadius: "12px",
-            backgroundColor: "#fd7d88",
+            backgroundColor: activeItem == "overview" ? "#fd7d88" : "white",
             display: "flex",
             gap: 1,
             padding: "8px",
@@ -50,6 +64,7 @@ export default function SidebarMobile() {
             my: 1,
             cursor: "pointer",
           }}
+          onClick={() => handleItemClick("overview")}
         >
           <ArrowForwardIosSharpIcon sx={{ fontSize: 13, color: "#B5B8B8" }} />
           <AutoAwesomeMosaicIcon sx={{ fontSize: 20 }} />
@@ -63,7 +78,7 @@ export default function SidebarMobile() {
         <Box
           sx={{
             // borderRadius: "12px",
-            // backgroundColor: "#fd7d88",
+            backgroundColor: activeItem == "KPIs" ? "#fd7d88" : "white",
             display: "flex",
             gap: 1,
             padding: "8px",
@@ -73,6 +88,7 @@ export default function SidebarMobile() {
             my: 1,
             cursor: "pointer",
           }}
+          onClick={() => handleItemClick("KPIs")}
         >
           <ArrowForwardIosSharpIcon sx={{ fontSize: 13, color: "#B5B8B8" }} />
           <BookmarkAddedSharpIcon sx={{ fontSize: 20 }} />
