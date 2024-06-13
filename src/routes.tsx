@@ -6,6 +6,7 @@ import DetailKPI from "./views/DetailKPI/DetailKPI";
 import TaskOverview from "./views/TaskOverview/TaskOverview";
 import KPIManage1 from "./views/KPIManage/KPIManage1";
 import KPIManage2 from "./views/KPIManage/KPIManage2";
+import Teams from "./views/Teams/Teams";
 
 export default function RouterUrl() {
   return useRoutes([
@@ -17,6 +18,7 @@ export default function RouterUrl() {
         { path: "KPIManage", element: <KPIManage1 /> },
         { path: "KPIManage2", element: <KPIManage2 /> },
         { path: "taskoverview", element: <TaskOverview /> },
+        { path: "teams", element: <Teams /> },
       ],
     },
   ]);

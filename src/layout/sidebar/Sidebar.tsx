@@ -3,8 +3,26 @@ import FaceSharpIcon from "@mui/icons-material/FaceSharp";
 import AutoAwesomeMosaicIcon from "@mui/icons-material/AutoAwesomeMosaic";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import BookmarkAddedSharpIcon from "@mui/icons-material/BookmarkAddedSharp";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Groups2OutlinedIcon from "@mui/icons-material/Groups2Outlined";
 
 export default function Sidebar() {
+  const [activeItem, setActiveItem] = useState("Overview");
+  const navigate = useNavigate();
+
+  const handleItemClick = (item: any) => {
+    setActiveItem(item);
+    if (item == "KPIs") {
+      navigate("/KPIManage");
+    }
+    if (item == "overview") {
+      navigate("/overview");
+    }
+    if (item == "teams") {
+      navigate("/teams");
+    }
+  };
   return (
     <Box
       sx={{
@@ -40,7 +58,8 @@ export default function Sidebar() {
         <Box
           sx={{
             borderRadius: "12px",
-            backgroundColor: "#fd7d88",
+            backgroundColor: activeItem == "overview" ? "#fd7d88" : "white",
+
             display: "flex",
             gap: 1,
             padding: "8px",
@@ -50,6 +69,7 @@ export default function Sidebar() {
             my: 1,
             cursor: "pointer",
           }}
+          onClick={() => handleItemClick("overview")}
         >
           <ArrowForwardIosSharpIcon sx={{ fontSize: 13, color: "#B5B8B8" }} />
           <AutoAwesomeMosaicIcon sx={{ fontSize: 20 }} />
@@ -64,6 +84,8 @@ export default function Sidebar() {
           sx={{
             // borderRadius: "12px",
             // backgroundColor: "#fd7d88",
+            backgroundColor: activeItem == "KPIs" ? "#fd7d88" : "white",
+
             display: "flex",
             gap: 1,
             padding: "8px",
@@ -73,6 +95,7 @@ export default function Sidebar() {
             my: 1,
             cursor: "pointer",
           }}
+          onClick={() => handleItemClick("KPIs")}
         >
           <ArrowForwardIosSharpIcon sx={{ fontSize: 13, color: "#B5B8B8" }} />
           <BookmarkAddedSharpIcon sx={{ fontSize: 20 }} />
@@ -81,7 +104,7 @@ export default function Sidebar() {
         <Box
           sx={{
             // borderRadius: "12px",
-            // backgroundColor: "#fd7d88",
+            backgroundColor: activeItem == "teams" ? "#fd7d88" : "white",
             display: "flex",
             gap: 1,
             padding: "8px",
@@ -91,10 +114,11 @@ export default function Sidebar() {
             my: 1,
             cursor: "pointer",
           }}
+          onClick={() => handleItemClick("teams")}
         >
           <ArrowForwardIosSharpIcon sx={{ fontSize: 13, color: "#B5B8B8" }} />
-          <AutoAwesomeMosaicIcon sx={{ fontSize: 20 }} />
-          <Typography>Overview</Typography>
+          <Groups2OutlinedIcon sx={{ fontSize: 20 }} />
+          <Typography>Teams</Typography>
         </Box>
       </Box>
       <Box sx={{ my: 2 }}>
