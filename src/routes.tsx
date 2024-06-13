@@ -1,9 +1,11 @@
 import { Navigate, useRoutes } from "react-router-dom";
 import path from "path";
 import Layout from "./layout/Layout";
-import HomePage from "./views/HomePage/HomePage";
 import Dashboard from "./views/Dashboard/Dashboard";
 import DetailKPI from "./views/DetailKPI/DetailKPI";
+import TaskOverview from "./views/TaskOverview/TaskOverview";
+import KPIManage1 from "./views/KPIManage/KPIManage1";
+import KPIManage2 from "./views/KPIManage/KPIManage2";
 
 export default function RouterUrl() {
   return useRoutes([
@@ -11,9 +13,10 @@ export default function RouterUrl() {
       path: "/",
       element: <Layout />,
       children: [
-        { path: "homepage", element: <HomePage /> },
-        { path: "dashboard", element: <Dashboard /> },
-        { path: "detailKPI", element: <DetailKPI /> },
+        { path: "overview", element: <Dashboard /> },
+        { path: "KPIManage", element: <KPIManage1 /> },
+        { path: "KPIManage2", element: <KPIManage2 /> },
+        { path: "taskoverview", element: <TaskOverview /> },
       ],
     },
   ]);

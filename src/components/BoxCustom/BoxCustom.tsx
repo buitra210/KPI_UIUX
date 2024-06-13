@@ -12,8 +12,8 @@ export default function BoxCustom({ children, sx }: BoxCustomProps) {
         px: 3,
         py: 2,
         borderRadius: "15px",
-        // border: "1px solid #3f6c62",
-        boxShadow: "0px 1px 5px 0px #00000021",
+        border: "1.6px solid #0e0001c9",
+        // boxShadow: "0px 1px 5px 0px #00000021",
 
         ...sx,
       }}

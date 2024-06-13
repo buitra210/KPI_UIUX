@@ -1,41 +1,28 @@
 import { Box } from "@mui/material";
-import React from "react";
 import HighchartsReact from "highcharts-react-official";
 import Highcharts, { color } from "highcharts";
 import { CHART_COLOR_RANGE } from "src/constants";
 import BoxCustom from "src/components/BoxCustom/BoxCustom";
-import { title } from "process";
 
-export default function LineChartKPI() {
+export default function LineChartDetail() {
   const now = Date.now();
-  const allKPI = Array.from(Array(20).keys()).map((value, index) => {
+  const KPI = Array.from(Array(10).keys()).map((value, index) => {
     return [
       now + index * 1000 * 60 * 60 * 24 * 7,
-      Math.floor(Math.random() * 100),
+      Math.floor(Math.random() * 20),
     ];
   });
-  const teaches = Array.from(Array(20).keys()).map((value, index) => {
-    return [
-      now + index * 1000 * 60 * 60 * 24 * 7,
-      Math.floor(Math.random() * 100),
-    ];
-  });
-  // const study = Array.from(Array(20).keys()).map((value, index) => {
-  //   return [
-  //     now + index * 1000 * 60 * 60 * 24 * 7,
-  //     Math.floor(Math.random() * 100),
-  //   ];
-  // });
+
   const options = {
     chart: {
       type: "spline",
-      height: 400,
+      height: 300,
       alignThresholds: true,
       scrollablePlotArea: {
         minWidth: 450,
       },
     },
-    title: { text: "KPIs of the week" },
+    title: { text: "KPI" },
     xAxis: {
       type: "datetime",
       crosshair: { width: 2 },
@@ -56,7 +43,7 @@ export default function LineChartKPI() {
     tooltip: {
       shared: true,
       tooltip: {
-        valueSuffix: "%",
+        valueSuffix: "KPI",
       },
     },
 
@@ -65,9 +52,9 @@ export default function LineChartKPI() {
     },
     series: [
       {
-        name: "All KPIs",
-        data: allKPI,
-        color: CHART_COLOR_RANGE[0],
+        name: "KPI",
+        data: KPI,
+        color: CHART_COLOR_RANGE[1],
       },
       // {
       //   name: "Teaches",
