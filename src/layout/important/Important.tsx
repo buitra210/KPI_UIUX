@@ -43,7 +43,7 @@ export default function Important() {
               <Box sx={{ display: "flex", flexDirection: "column" }}>
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
                   <OfflinePinOutlinedIcon sx={{ fontSize: 30 }} />
-                  <ListItemText sx={{ pb: 0 }} primary="KPI 1" />
+                  <ListItemText sx={{ pb: 0 }} primary="Mastering Bitcoin" />
                 </Box>
 
                 <Typography
@@ -59,7 +59,10 @@ export default function Important() {
               <Box sx={{ display: "flex", flexDirection: "column" }}>
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
                   <OfflinePinOutlinedIcon sx={{ fontSize: 30 }} />
-                  <ListItemText sx={{ pb: 0 }} primary="KPI 2" />
+                  <ListItemText
+                    sx={{ pb: 0 }}
+                    primary="Develop 2 New Course Materials"
+                  />
                 </Box>
 
                 <Typography
@@ -75,7 +78,10 @@ export default function Important() {
               <Box sx={{ display: "flex", flexDirection: "column" }}>
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
                   <OfflinePinOutlinedIcon sx={{ fontSize: 30 }} />
-                  <ListItemText sx={{ pb: 0 }} primary="KPI 3" />
+                  <ListItemText
+                    sx={{ pb: 0 }}
+                    primary="Receive Positive Feedback from 90% of Students"
+                  />
                 </Box>
 
                 <Typography

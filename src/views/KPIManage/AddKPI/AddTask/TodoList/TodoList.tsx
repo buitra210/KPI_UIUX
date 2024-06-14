@@ -20,7 +20,7 @@ export default function TodoList() {
 
   const addClick = () => {
     const newTodoItem: Todo1 = {
-      id: uuidv4(),
+      id: Math.random().toString(),
       name: newTodoString,
       isCompleted: false,
     };
@@ -68,21 +68,6 @@ export default function TodoList() {
         onDeleteClick={deleteTodo}
         updateTodo={updateTodo}
       />
-      <Box sx={{ display: "flex", flexDirection: "row" }}>
-        <Icon>
-          <FunctionsIcon />
-        </Icon>
-        <Typography variant="body1">
-          <Typography component={"span"}>alo</Typography> {count}
-        </Typography>
-      </Box>
-      <Box sx={{ display: "flex", flexDirection: "row" }}>
-        <Icon>
-          <TaskAltIcon />
-        </Icon>
-        <Typography>{count}</Typography>
-      </Box>
-      <Box component={"a"}>aaa</Box>
     </Box>
   );
 }

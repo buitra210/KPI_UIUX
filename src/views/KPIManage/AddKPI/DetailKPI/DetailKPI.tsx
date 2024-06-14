@@ -24,6 +24,8 @@ import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import TodoList from "../AddTask/TodoList/TodoList";
+import ButtonCustom from "src/components/ButtonCustom/ButtonCustom";
 export default function DetailKPI() {
   const { userInfo, setUserInfo } = useUserInfo();
   const [selectedFileName, setSelectedFileName] = useState("");
@@ -108,7 +110,7 @@ export default function DetailKPI() {
   };
 
   const handleSave = () => {
-    navigate("/detailKPI");
+    navigate("/KPIManage2");
     localStorage.setItem("userInfo", JSON.stringify(userInfo));
     if (validateForm()) {
       console.log(userInfo);
@@ -373,7 +375,7 @@ export default function DetailKPI() {
                         <Box>
                           <Box sx={{ my: 4, display: "flex" }}>
                             <Box>
-                              <Typography sx={{ mb: 2 }}>Task</Typography>
+                              <Typography sx={{ mb: 2 }}>Main Task</Typography>
                               <TextField
                                 value={userInfo.task}
                                 multiline
@@ -384,6 +386,10 @@ export default function DetailKPI() {
                                 fullWidth
                                 helperText="Please enter your KPI's task"
                               ></TextField>
+                              <Box sx={{ mt: 2 }}>
+                                <Typography sx={{ mb: 2 }}>Task</Typography>
+                                <TodoList />
+                              </Box>
                             </Box>
                           </Box>
                         </Box>
@@ -487,9 +493,9 @@ export default function DetailKPI() {
                   </Paper>
                 </Box>
                 <Box sx={{ display: "flex", justifyContent: "center", mt: 3 }}>
-                  <Button variant="outlined" onClick={handleSave}>
-                    Submit
-                  </Button>
+                  <Box onClick={handleSave}>
+                    <ButtonCustom>Submit</ButtonCustom>
+                  </Box>
                 </Box>
               </Container>
             </Box>

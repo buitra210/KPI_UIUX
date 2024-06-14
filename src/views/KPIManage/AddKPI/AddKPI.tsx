@@ -20,6 +20,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { toast } from "react-toastify";
 import { useUserInfo } from "src/context/KPIModalContext/KPIModalContext";
 import { useNavigate } from "react-router-dom";
+import ButtonCustom from "src/components/ButtonCustom/ButtonCustom";
 
 export default function AddKPI() {
   const { userInfo, setUserInfo } = useUserInfo();
@@ -419,9 +420,9 @@ export default function AddKPI() {
         </Paper>
       </Box>
       <Box sx={{ display: "flex", justifyContent: "center", mt: 3 }}>
-        <Button variant="outlined" onClick={handleSave}>
-          Submit
-        </Button>
+        <Box onClick={handleSave}>
+          <ButtonCustom>Submit</ButtonCustom>
+        </Box>
       </Box>
     </Container>
   );

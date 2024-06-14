@@ -30,25 +30,16 @@ export default function Action() {
           borderRadius: "15px",
           backgroundColor: "#fed7da3d",
           height: "auto",
-          py: 1,
-          px: 1,
+          py: 2,
+          px: 2,
           width: { xs: "90%", md: "60%" },
           mt: 3,
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "flex-start",
           cursor: "pointer",
         }}
       >
-        <AddIcon
-          sx={{
-            color: "black",
-            fontSize: "30px",
-            fontWeight: 600,
-            opacity: "0.7",
-            mr: 3,
-          }}
-        />
         <Box>
           <Typography
             sx={{ color: "black", fontWeight: 600, opacity: "0.7" }}
@@ -88,30 +79,22 @@ export default function Action() {
           borderRadius: "15px",
           backgroundColor: "#fed7da3d",
           height: "auto",
-          py: 1,
-          px: 1,
+          py: 2,
+          px: 2,
           width: { xs: "90%", md: "60%" },
           mt: 3,
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "flex-start",
+          cursor: "pointer",
         }}
       >
-        <AddIcon
-          sx={{
-            color: "black",
-            fontSize: "30px",
-            fontWeight: 600,
-            opacity: "0.7",
-            mr: 3,
-          }}
-        />
         <Box>
           <Typography sx={{ color: "black", fontWeight: 600, opacity: "0.7" }}>
-            Create new KPI
+            Just Chill
           </Typography>
           <Typography sx={{ opacity: "0.6" }}>
-            Start a new journey on challenging yourself!
+            Take a rest and have a sip of coffee.
           </Typography>
         </Box>
       </Box>
@@ -120,30 +103,22 @@ export default function Action() {
           borderRadius: "15px",
           backgroundColor: "#fed7da3d",
           height: "auto",
-          py: 1,
-          px: 1,
+          py: 2,
+          px: 2,
           width: { xs: "90%", md: "60%" },
-          my: 3,
+          mt: 3,
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "flex-start",
+          cursor: "pointer",
         }}
       >
-        <AddIcon
-          sx={{
-            color: "black",
-            fontSize: "30px",
-            fontWeight: 600,
-            opacity: "0.7",
-            mr: 3,
-          }}
-        />
         <Box>
           <Typography sx={{ color: "black", fontWeight: 600, opacity: "0.7" }}>
-            Create new KPI
+            Boost your performance by reviewing KPIs...
           </Typography>
           <Typography sx={{ opacity: "0.6" }}>
-            Start a new journey on challenging yourself!
+            Look at the past and see how well you did.
           </Typography>
         </Box>
       </Box>

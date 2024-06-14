@@ -29,7 +29,7 @@ export default function ActionGeneral() {
   return (
     <React.Fragment>
       <Box sx={{ my: { xs: "30px", sm: "40px" } }}>
-        <Grid container-fluid spacing={2}>
+        <Grid container spacing={2}>
           <Grid item xs={6} md={3}>
             <Box onClick={handleClickOpen}>
               <BoxCustom
