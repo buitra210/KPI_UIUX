@@ -12,7 +12,7 @@ export default function RouterUrl() {
   return useRoutes([
     {
       path: "/",
-      element: <Navigate to="/plainHtmlCss/landing.html" />,
+      element: <Layout />,
       children: [
         { path: "overview", element: <Dashboard /> },
         { path: "KPIManage", element: <KPIManage1 /> },
