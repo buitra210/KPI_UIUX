@@ -99,7 +99,7 @@ export default function Sidebar() {
       </Box>
       <Box sx={{ my: 2 }}>
         <Typography sx={{ color: "#B5B8B8", fontSize: "15px", ml: 2 }}>
-          Dasboard
+          Settings
         </Typography>
         <Box
           sx={{
@@ -117,7 +117,7 @@ export default function Sidebar() {
         >
           <ArrowForwardIosSharpIcon sx={{ fontSize: 13, color: "#B5B8B8" }} />
           <AutoAwesomeMosaicIcon sx={{ fontSize: 20 }} />
-          <Typography>Overview</Typography>
+          <Typography>User profile</Typography>
         </Box>
         <Box
           sx={{
@@ -135,7 +135,7 @@ export default function Sidebar() {
         >
           <ArrowForwardIosSharpIcon sx={{ fontSize: 13, color: "#B5B8B8" }} />
           <AutoAwesomeMosaicIcon sx={{ fontSize: 20 }} />
-          <Typography>Overview</Typography>
+          <Typography>Account</Typography>
         </Box>
       </Box>
       {/* <Box sx={{ paddingBottom: "0px" }}>

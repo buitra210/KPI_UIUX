@@ -17,6 +17,7 @@ export default function RouterUrl() {
         { path: "KPIManage", element: <KPIManage1 /> },
         { path: "KPIManage2", element: <KPIManage2 /> },
         { path: "taskoverview", element: <TaskOverview /> },
+        { path: "detailKPI", element: <DetailKPI />}
       ],
     },
   ]);

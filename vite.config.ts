@@ -12,4 +12,9 @@ export default defineConfig({
     },
   },
   define: {},
+  optimizeDeps: {
+    include: [
+      "@mui/material/Box",
+    ],
+  },
 });
