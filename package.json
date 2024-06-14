@@ -44,7 +44,7 @@
     "react-route": "^1.0.3",
     "react-router-dom": "^6.23.0",
     "react-toastify": "^10.0.5",
-    "viem": "2.x"
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
