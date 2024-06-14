@@ -5,6 +5,7 @@ import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import BookmarkAddedSharpIcon from "@mui/icons-material/BookmarkAddedSharp";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Groups2OutlinedIcon from "@mui/icons-material/Groups2Outlined";
 
 export default function SidebarMobile() {
   const [activeItem, setActiveItem] = useState("Overview");
@@ -17,6 +18,9 @@ export default function SidebarMobile() {
     }
     if (item == "overview") {
       navigate("/overview");
+    }
+    if (item == "teams") {
+      navigate("/teams");
     }
   };
   return (
@@ -98,6 +102,7 @@ export default function SidebarMobile() {
           sx={{
             // borderRadius: "12px",
             // backgroundColor: "#fd7d88",
+            backgroundColor: activeItem == "teams" ? "#fd7d88" : "white",
             display: "flex",
             gap: 1,
             padding: "8px",
@@ -107,10 +112,11 @@ export default function SidebarMobile() {
             my: 1,
             cursor: "pointer",
           }}
+          onClick={() => handleItemClick("teams")}
         >
           <ArrowForwardIosSharpIcon sx={{ fontSize: 13, color: "#B5B8B8" }} />
-          <AutoAwesomeMosaicIcon sx={{ fontSize: 20 }} />
-          <Typography>Overview</Typography>
+          <Groups2OutlinedIcon sx={{ fontSize: 20 }} />
+          <Typography>Teams</Typography>
         </Box>
       </Box>
       <Box sx={{ my: 2 }}>

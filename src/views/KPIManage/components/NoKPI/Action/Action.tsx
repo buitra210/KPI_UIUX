@@ -1,7 +1,28 @@
-import { Box, Typography } from "@mui/material";
+import {
+  Box,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
+import { useState } from "react";
+import AddKPI from "src/views/KPIManage/AddKPI/AddKPI";
 
 export default function Action() {
+  const [open, setOpen] = useState(false);
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <Box sx={{ pl: { md: "25%", xs: "4%" }, my: 4 }}>
       <Box
@@ -16,6 +37,7 @@ export default function Action() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          cursor: "pointer",
         }}
       >
         <AddIcon
@@ -28,9 +50,34 @@ export default function Action() {
           }}
         />
         <Box>
-          <Typography sx={{ color: "black", fontWeight: 600, opacity: "0.7" }}>
+          <Typography
+            sx={{ color: "black", fontWeight: 600, opacity: "0.7" }}
+            onClick={handleClickOpen}
+          >
             Create new KPI
           </Typography>
+          <Dialog
+            // fullScreen={fullScreen}
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="responsive-dialog-title"
+          >
+            <DialogTitle
+              id="responsive-dialog-title"
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                fontSize: "30px",
+                fontWeight: 600,
+                cursor: "pointer",
+              }}
+            >
+              Create a KPI now!
+            </DialogTitle>
+            <DialogContent>
+              <AddKPI />
+            </DialogContent>
+          </Dialog>
           <Typography sx={{ opacity: "0.6" }}>
             Start a new journey on challenging yourself!
           </Typography>

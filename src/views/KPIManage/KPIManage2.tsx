@@ -2,8 +2,6 @@ import { Box, Typography } from "@mui/material";
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import SubBar from "./components/SubBar/SubBar";
-import NoKPI from "./components/NoKPI/NoKPI";
-import Action from "./components/NoKPI/Action/Action";
 import HaveKPI from "./components/HaveKPI/HaveKPI";
 
 export default function KPIManage2() {
